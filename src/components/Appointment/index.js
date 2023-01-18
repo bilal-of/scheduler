@@ -50,42 +50,37 @@ export default function Appointment(props) {
   }
 
 
-  return (
-    <>
-      <Header time={props.time} />
+  return ( 
+      <><Header time={props.time} /><article className="appointment" data-testid="appointment">
+
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && props.interview && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={() => {
-            transition(CONFIRM)
-          }}
-          onEdit={edit}
-        />
+            transition(CONFIRM);
+          } }
+          onEdit={edit} />
       )}
       {mode === CREATE && (
         <Form
           interviewers={props.interviewers}
           onCancel={() => back()}
-          onSave={save}
-        />
+          onSave={save} />
       )}
       {mode === SAVING && (
-        <Status isSaving
-        />
+        <Status isSaving />
       )}
 
       {mode === DELETING && (
-        <Status
-        />
+        <Status />
       )}
 
       {mode === CONFIRM && (
         <Confirm
           onConfirm={deleting}
-          onCancel={() => back()}
-        />
+          onCancel={() => back()} />
       )}
 
       {mode === EDIT && (
@@ -94,19 +89,17 @@ export default function Appointment(props) {
           interviewer={props.interview.interviewer.id}
           student={props.interview.student}
           onCancel={() => back()}
-          onSave={save}
-        />
+          onSave={save} />
       )}
       {mode === ERROR_DELETE && (
         <Error message='Can not delete appointment'
-          onClose={() => back()}
-        />
+          onClose={() => back()} />
       )}
       {mode === ERROR_SAVE && (
         <Error message='Can not save appointment'
-          onClose={() => back()}
-        />
+          onClose={() => back()} />
       )}
-    </>
-  )
-}
+    </article></>
+
+      )
+  }
