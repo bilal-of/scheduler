@@ -21,3 +21,7 @@ npm test
 ```sh
 npm run storybook
 ```
+## Install and run Scheduler-API
+The Scheduler project and Scheduler-API must run at the same time. The Scheduler-API can be found below:
+
+https://github.com/bilal-of/scheduler-api
